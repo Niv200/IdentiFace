@@ -13,8 +13,8 @@
     },
     "categories": {
       "auth": {
-        "identifacee88b1ac5": {},
-        "userPoolGroups": {}
+        "userPoolGroups": {},
+        "dev": {}
       }
     }
   }

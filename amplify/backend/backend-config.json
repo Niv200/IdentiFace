@@ -1,6 +1,21 @@
 {
   "auth": {
-    "identifacee88b1ac5": {
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "dev",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ]
+    },
+    "dev": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

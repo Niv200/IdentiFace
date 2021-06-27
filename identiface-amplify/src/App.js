@@ -4,6 +4,11 @@ import UploadImage from "./Components/Buckets/UploadImage";
 import React from "react";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
+import Amplify from "aws-amplify";
+import config from "./aws-exports";
+
+Amplify.configure(config);
+
 function App() {
 	return (
 		<div className="App">
@@ -15,7 +20,6 @@ function App() {
 				</p>
 				<div>
 					<AmplifySignOut />
-					Amplify sign
 				</div>
 			</header>
 		</div>
