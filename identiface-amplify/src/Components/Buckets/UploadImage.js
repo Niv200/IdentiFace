@@ -4,11 +4,6 @@ import AWS from "aws-sdk";
 const S3_BUCKET = "identiface-main-bucket";
 const REGION = "eu-central-1";
 
-AWS.config.update({
-	accessKeyId: "AKIA4RIMQDLB2OQXHWPK",
-	secretAccessKey: "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",
-});
-
 const myBucket = new AWS.S3({
 	params: { Bucket: S3_BUCKET },
 	region: REGION,
@@ -31,71 +26,6 @@ const uploadFile = (file, name, setProgress) => {
 			if (err) console.log(err);
 		});
 };
-
-// export default function UploadImage() {
-// 	const [progress, setProgress] = useState(0);
-// 	const [selectedFile, setSelectedFile] = useState(null);
-// 	const [setPersonName, personName] = useState("");
-
-// 	const handleFileInput = (e) => {
-// 		setSelectedFile(e.target.files[0]);
-// 	};
-
-// 	//If  progress is more than 0
-// 	if (progress > 0) {
-// 		//Is completed?
-// 		if (progress === 100) {
-// 			return (
-// 				<div>
-// 					<div>Success!</div>
-// 				</div>
-// 			);
-// 			//Else show progress
-// 		} else {
-// 			return (
-// 				<div>
-// 					<div>Native SDK File Upload Progress is {progress}%</div>
-// 				</div>
-// 			);
-// 		}
-// 	}
-
-// 	//If name and file are valid:
-// 	if (selectedFile && selectedFile.name) {
-// 		//If file name doesnt end with .jpg
-// 		if (!selectedFile.name.endsWith(".jpg")) {
-// 			return (
-// 				<div>
-// 					<div>File is not valid!</div>
-// 					<div>Only files ending with .jpg are supported!</div>
-// 					<input type="file" onChange={handleFileInput} />
-// 				</div>
-// 			);
-// 		}
-// 		//Show uploading button
-// 		return (
-// 			<div>
-// 				<button
-// 					onClick={() =>
-// 						uploadFile(selectedFile, selectedFile.name, setProgress)
-// 					}
-// 				>
-// 					Upload to S3
-// 				</button>
-// 			</div>
-// 		);
-// 		//Show uploading box
-// 	} else {
-// 		return (
-// 			<div>
-// 				<div>Select a person JPG file to begin with:</div>
-// 				<input type="file" onChange={handleFileInput} />
-// 			</div>
-// 		);
-// 	}
-// }
-
-///////////////////////////
 
 export default function UploadImage() {
 	const [file, setFile] = useState();
@@ -149,35 +79,42 @@ export default function UploadImage() {
 	);
 }
 
+//Verify values and file before uploading file
 const upload = (firstName, lastName, setMessage, file, setProgress) => {
-	if (firstName.length > 2 && lastName.length > 2) {
-		if (!file) {
-			setMessage("Image is not valid!");
-		} else {
-			setMessage(undefined);
-			let fileName = firstName + "-" + lastName + ".png";
-			uploadFile(file, fileName, setProgress);
-		}
-	} else {
-		if (firstName.length > 3) {
-			setMessage("Last name is too short!");
-		} else {
-			setMessage("First name is too short!");
-		}
-	}
+	// if (firstName.length > 2 && lastName.length > 2) {
+	// 	if (!file) {
+	// 		setMessage("Image is not valid!");
+	// 	} else {
+	// 		setMessage(undefined);
+	// 		let fileName = firstName + "-" + lastName + ".png";
+	// 		console.log(file);
+	// 		uploadFile(file, fileName, setProgress);
+	// 	}
+	// } else {
+	// 	if (firstName.length > 3) {
+	// 		setMessage("Last name is too short!");
+	// 	} else {
+	// 		setMessage("First name is too short!");
+	// 	}
+	// }
+	console.log(file);
 };
 
+//Upload image finally
 const uploadImage = (file, setFile, setMessage) => {
 	if (file) {
-		if (file.name && file.name.endsWith(".jpg")) {
+		if (
+			file.name &&
+			(file.name.endsWith(".jpg") || file.name.endsWith(".png"))
+		) {
 			setFile(file);
 			setMessage(undefined);
 		} else {
 			setFile(undefined);
-			setMessage("Image must end with .jpg");
+			setMessage("Image must end with .jpg/.png");
 		}
 	} else {
 		setFile(undefined);
-		setMessage("Image must end with .jpg");
+		setMessage("Image must end with .jpg/.png");
 	}
 };
