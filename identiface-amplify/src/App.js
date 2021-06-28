@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import UploadImage from "./Components/Buckets/UploadImage";
 import CollectionList from "./Components/Collection/CollectionList";
+import CreateCollection from "./Components/Collection/CreateCollection";
 import React from "react";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
@@ -17,9 +18,7 @@ function App() {
 				<UploadImage />
 				<CollectionList />
 				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
+				<CreateCollection />
 				<div>
 					<AmplifySignOut />
 				</div>
