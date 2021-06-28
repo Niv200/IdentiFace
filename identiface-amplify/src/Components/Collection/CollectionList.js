@@ -2,11 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const url =
-	"https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listcollections";
+const url = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listcollections";
 
-const urlDelete =
-	"https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/deletecollection";
+const urlDelete = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/deletecollection";
 export default function CollectionList() {
 	const [collections, setCollections] = useState(undefined);
 	const [edit, setEdit] = useState(false);
@@ -32,7 +30,6 @@ export default function CollectionList() {
 			>
 				{edit ? "Back" : "Edit"}
 			</button>
-			<button onClick={() => console.log(toRemove)}>show</button>
 		</div>
 	);
 }
@@ -62,11 +59,7 @@ const getList = (setCollections, collections, collection, edit, setEdit, setToRe
 			return (
 				<li key={Math.floor(Math.random() * 1000000000000)}>
 					{item}
-					<button
-						onClick={() =>
-							deleteCollection(item, setCollections, collections, setToRemove, setEdit)
-						}
-					>
+					<button onClick={() => deleteCollection(item, setCollections, collections, setToRemove, setEdit)}>
 						permanently delete
 					</button>
 				</li>

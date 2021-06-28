@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+
+const urlCreate = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/createcollection";
+
 export default function CreateCollection() {
 	const [collectionName, setCollectionName] = useState("");
 	const [status, setStatus] = useState();
@@ -30,4 +34,19 @@ const createNewCollection = (collectionName, setStatus) => {
 	}
 };
 
-const create = (collectionName) => {};
+const create = (collection) => {
+	let body = {
+		// data: {
+		collectionName: collection,
+		// },
+	};
+
+	axios.post(urlCreate, body).then(
+		(response) => {
+			console.log(response);
+		},
+		(error) => {
+			console.log(error);
+		}
+	);
+};
