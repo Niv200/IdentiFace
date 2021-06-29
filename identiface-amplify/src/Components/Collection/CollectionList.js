@@ -4,7 +4,6 @@ import axios from "axios";
 
 const url = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listcollections";
 
-const urlDelete = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/deletecollection";
 export default function CollectionList() {
 	const [collections, setCollections] = useState(undefined);
 
@@ -18,7 +17,6 @@ export default function CollectionList() {
 	return <div>{list}</div>;
 }
 
-//
 const updateCollectionsState = (url, setCollections) => {
 	axios
 		.get(url)

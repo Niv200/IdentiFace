@@ -1,4 +1,6 @@
 {
+    "identityPoolName": "dev_identitypool_a721725f",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "identi82bdbdb6",
     "userPoolName": "identiface82bdbdb6_userpool_82bdbdb6",
     "autoVerifiedAttributes": [
@@ -30,7 +32,7 @@
     "userpoolClientSetAttributes": true,
     "sharedId": "82bdbdb6",
     "resourceName": "dev",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",

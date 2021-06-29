@@ -10,7 +10,8 @@
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
-            "AppClientID"
+            "AppClientID",
+            "IdentityPoolId"
           ]
         }
       ]
@@ -20,6 +21,12 @@
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false
+    }
+  },
+  "storage": {
+    "identifacestorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

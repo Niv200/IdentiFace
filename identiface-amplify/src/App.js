@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import CreateCollection from "./Components/Collection/CreateCollection";
 import Routes from "./Components/Router/Routes";
 import React from "react";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";

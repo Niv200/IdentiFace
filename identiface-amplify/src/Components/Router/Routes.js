@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 import Collections from "../Collection/Collections";
-import UploadImage from "../Buckets/UploadImage";
+import Users from "../Users/Users";
 
 export default function Routes() {
 	return (
@@ -25,7 +25,8 @@ export default function Routes() {
 						<Collections />
 					</Route>
 					<Route path="/users">
-						<UploadImage />
+						<h1>Users</h1>
+						<Users />
 					</Route>
 					<Route path="/">
 						<h1>home</h1>
