@@ -10,6 +10,8 @@ export default function CreateCollection() {
 
 	return (
 		<div>
+			<h1>Create a new collection:</h1>
+			<p>Ensure that collection name is longer than 5 characters, shorter than 25, and contains English letters only</p>
 			<div>{status}</div>
 			<input type="text" value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
 			<button onClick={() => createNewCollection(collectionName, setStatus)}>Create</button>
@@ -18,14 +20,14 @@ export default function CreateCollection() {
 }
 
 const createNewCollection = (collectionName, setStatus) => {
-	if (collectionName.length > 5 && /^[a-zA-Z]+$/.test(collectionName) && collectionName.length < 25) {
+	if (collectionName.length >= 5 && /^[a-zA-Z]+$/.test(collectionName) && collectionName.length <= 25) {
 		setStatus(undefined);
-		create(collectionName);
+		create(collectionName, setStatus);
 	} else {
-		if (collectionName.length < 5) {
+		if (collectionName.length <= 5) {
 			setStatus("Collection name is too short!");
 		} else {
-			if (collectionName.length > 25) {
+			if (collectionName.length >= 25) {
 				setStatus("Collection name is too long!");
 			} else {
 				setStatus("Collection name must contain single word using alphabetics only!");
@@ -34,16 +36,16 @@ const createNewCollection = (collectionName, setStatus) => {
 	}
 };
 
-const create = (collection) => {
+const create = (collection, setStatus) => {
 	let body = {
-		// data: {
 		collectionName: collection,
-		// },
 	};
 
 	axios.post(urlCreate, body).then(
 		(response) => {
-			console.log(response);
+			if (response.data.result == "success") {
+				setStatus("Created new collection named " + collection);
+			}
 		},
 		(error) => {
 			console.log(error);
