@@ -3,7 +3,7 @@ import CollectionList from "./CollectionList";
 import CreateCollection from "./CreateCollection";
 import CollectionDelete from "./CollectionDelete";
 import CollectionData from "./CollectionData";
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 export default function Collections() {
 	let match = useRouteMatch();

@@ -43,7 +43,7 @@ const create = (collection, setStatus) => {
 
 	axios.post(urlCreate, body).then(
 		(response) => {
-			if (response.data.result == "success") {
+			if (response.data.result === "success") {
 				setStatus("Created new collection named " + collection);
 			}
 		},
