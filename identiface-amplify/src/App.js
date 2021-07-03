@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Routes from "./Components/Router/Routes";
 import React from "react";
@@ -10,16 +9,16 @@ import config from "./aws-exports";
 Amplify.configure(config);
 
 function App() {
-	return (
-		<div className="App">
-			<header className="App-header">
-				<Routes />
-				<div>
-					<AmplifySignOut />
-				</div>
-			</header>
-		</div>
-	);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Routes />
+        <div>
+          <AmplifySignOut />
+        </div>
+      </header>
+    </div>
+  );
 }
 
 export default withAuthenticator(App);

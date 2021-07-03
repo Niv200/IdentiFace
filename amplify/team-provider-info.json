@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-identiface-dev-192200-unauthRole",
       "StackName": "amplify-identiface-dev-192200",
       "StackId": "arn:aws:cloudformation:eu-central-1:861704035011:stack/amplify-identiface-dev-192200/cfce25a0-d763-11eb-928f-02931cf5f686",
-      "AmplifyAppId": "d2u9hsx4mtr4hs"
+      "AmplifyAppId": "d2u9hsx4mtr4hs",
+      "AuthTriggerTemplateURL": ""
     },
     "categories": {
       "auth": {
