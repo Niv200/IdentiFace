@@ -4,6 +4,7 @@ import axios from "axios";
 const url = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listcollections";
 const url2 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listfacesinbucket";
 const url3 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/sendface";
+const url4 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/addfacetodatabase";
 
 function AddUser() {
   const [collections, setCollections] = useState(undefined);
@@ -105,53 +106,43 @@ const getUsersButtons = (users, collection, setUser) => {
   });
 };
 
-const addUser = (user, collection, setStatus) => {
-  console.log("Adding user " + user + " to collection: " + collection);
+const addUser = (user, collection, setStatus, setAdding) => {
   setStatus("Added new user");
   //setAdding(undefined) when completed
-  console.log(user);
+  let userName = user;
   let path = "public/" + user.replace(" ", "-") + ".png";
-  console.log(path);
   const sendFace = {
     fileName: path,
     collectionName: collection,
   };
-  /**
-   * {statusCode: 200, body: "\"Sent image to collection\"", result: {…}}
-body: "\"Sent image to collection\""
-result:
-FaceModelVersion: "5.0"
-FaceRecords: Array(1)
-0:
-Face: {FaceId: "58e1cfb1-b99e-449e-a741-782a1a0681d3", BoundingBox: {…}, ImageId: "b7957307-b943-3d70-b00a-defcb8ee24cb", Confidence: 99.99270629882812}
-FaceDetail: {BoundingBox: {…}, Landmarks: Array(5), Pose: {…}, Quality: {…}, Confidence: 99.99270629882812}
-__proto__: Object
-length: 1
-__proto__: Array(0)
-UnindexedFaces: []
-__proto__: Object
-statusCode: 200
-__proto__: Object
-   */
-  console.log(sendFace);
+
   axios.post(url3, sendFace).then(
     (response) => {
-      console.log(response.data.result);
-      setStatus(undefined);
+      if (response.data.result.FaceRecords[0].Face.ImageId) {
+        let sendReq = {
+          id: response.data.result.FaceRecords[0].Face.FaceId,
+          imageId: response.data.result.FaceRecords[0].Face.ImageId,
+          collection: collection,
+          file: sendFace.fileName,
+          name: userName,
+        };
+        axios.post(url4, sendReq).then(
+          (response) => {
+            if (response.data.success) {
+              setStatus(undefined);
+              setAdding(undefined);
+            }
+          },
+          (error) => {}
+        );
+      } else {
+        setStatus("Error, refresh page!");
+      }
     },
     (error) => {
       setStatus(undefined);
-      console.log(error);
     }
   );
-  const params = {
-    TableName: "hey",
-    Item: {
-      id: "hey",
-      collection: "hey",
-      file: "hey",
-    },
-  };
 };
 
 const getUsers = (setUsers) => {
@@ -161,12 +152,9 @@ const getUsers = (setUsers) => {
       let list = response.data.images.map((userPath) => {
         return userPath.Key.replace("public/", "").replace("-", " ").split(".")[0];
       });
-      console.log(list);
       setUsers(list);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => {});
 };
 
 const isExisting = (user, database) => {
@@ -179,9 +167,7 @@ const updateCollectionsState = (setCollections) => {
     .then((response) => {
       setCollections(response.data.collections);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => {});
 };
 
 export default AddUser;
