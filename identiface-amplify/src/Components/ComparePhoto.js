@@ -177,16 +177,21 @@ const comparePhoto = (photo, collection, setResult, setProgress) => {
     (response) => {
       if (response.data.status === "success") {
         // setStatus("Created new collection named " + collection);
-        let similarity = response.data.result.FaceMatches[0].Similarity;
-        let faceId = response.data.result.FaceMatches[0].Face.FaceId;
-        console.log(similarity);
-        console.log(faceId);
-        let res = {
-          similarity: similarity,
-          faceId: faceId,
-        };
-        setResult(res);
-        setProgress(undefined);
+        if (!response.data.result.FaceMatches[0]) {
+          setResult("Error");
+          setProgress(undefined);
+        } else {
+          let similarity = response.data.result.FaceMatches[0].Similarity;
+          let faceId = response.data.result.FaceMatches[0].Face.FaceId;
+          console.log(similarity);
+          console.log(faceId);
+          let res = {
+            similarity: similarity,
+            faceId: faceId,
+          };
+          setResult(res);
+          setProgress(undefined);
+        }
       }
     },
     (error) => {
@@ -202,7 +207,6 @@ const getUsers = (setUsers) => {
     .get(url4)
     .then((response) => {
       setUsers(response.data.data.Items);
-      console.log(response.data.data.Items);
     })
     .catch((error) => {
       console.log(error);

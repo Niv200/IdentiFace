@@ -14,10 +14,8 @@ function DeleteUsers() {
   if (!agree) {
     return (
       <div className="paragraph">
-        <h1>Delete user image from S3</h1>
-        <h3>User images should not be deleted!</h3>
-        <p className="paragraph">Instead, users should be deleted from database.</p>
-        <p className="paragraph">Deleting user image will result in that person's image needed to be uploaded again.</p>
+        <h2>Delete test image from S3</h2>
+        <p className="paragraph">Deleting test image will delete it permanently.</p>
         <div>
           <button onClick={() => setAgree(true)}>click to accept</button>
         </div>
@@ -80,10 +78,10 @@ const getUsers = (setUsers) => {
     .get(url)
     .then((response) => {
       let list = response.data.images.map((userPath) => {
-        return userPath.Key.replace("public/", "").replace("-", " ").split(".")[0];
+        return userPath.Key.replace("public/", "");
       });
       list = list.filter((item) => {
-        return !item.includes("compare/");
+        return item.includes("compare/");
       });
       list = list.map((item) => item.replace("compare/", ""));
       setUsers(list);

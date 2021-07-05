@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AWS from "aws-sdk";
 import Amplify, { Storage } from "aws-amplify";
 import config from "../aws-exports";
 Amplify.configure(config);
@@ -72,21 +71,5 @@ const upload = (fileName, setMessage, file, setResult) => {
     }
   } else {
     setMessage("Name is too short!, it must be bigger than 5 characters.");
-  }
-};
-
-//verify image finally
-const uploadImage = (file, setFile, setMessage) => {
-  if (file) {
-    if (file.name && (file.name.endsWith(".jpg") || file.name.endsWith(".png"))) {
-      setFile(file);
-      setMessage(undefined);
-    } else {
-      setFile(undefined);
-      setMessage("Image must end with .jpg/.png");
-    }
-  } else {
-    setFile(undefined);
-    setMessage("Image must end with .jpg/.png");
   }
 };

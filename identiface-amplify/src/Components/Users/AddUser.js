@@ -160,10 +160,6 @@ const getUsers = (setUsers) => {
     .catch((error) => {});
 };
 
-const isExisting = (user, database) => {
-  return true;
-};
-
 const updateCollectionsState = (setCollections) => {
   axios
     .get(url)

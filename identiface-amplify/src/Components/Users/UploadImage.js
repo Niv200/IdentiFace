@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AWS from "aws-sdk";
 import Amplify, { Storage } from "aws-amplify";
 import config from "../../Components/../aws-exports";
 Amplify.configure(config);

@@ -4,6 +4,7 @@ import Collections from "../Collection/Collections";
 import Users from "../Users/Users";
 import UploadComparePhoto from "../UploadComparePhoto";
 import ComparePhoto from "../ComparePhoto";
+import DeleteTestPhoto from "../DeleteTestPhoto";
 
 export default function Routes() {
   return (
@@ -39,12 +40,20 @@ export default function Routes() {
             <h1>Compare existing photo from S3</h1>
             <ComparePhoto />
           </Route>
+          <Route path="/compare/deletefroms3">
+            <DeleteTestPhoto />
+          </Route>
           <Route path="/compare">
             <h1>Compare a photo:</h1>
             <ul>
               <div>
                 <Link to="/compare/upload">
                   <button>Upload test photo</button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/compare/deletefroms3">
+                  <button>Delete test photo</button>
                 </Link>
               </div>
               <div>
