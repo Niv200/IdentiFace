@@ -3,6 +3,7 @@ import axios from "axios";
 
 const url = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listdynamo";
 const url2 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/deletefromdatabase";
+const url3 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/deletefromcollection";
 
 function ListUsers() {
   const [users, setUsers] = useState(undefined);
@@ -33,7 +34,6 @@ const getUsers = (setUsers) => {
     .get(url)
     .then((response) => {
       setUsers(response.data.data.Items);
-      console.log(response.data.data.Items);
     })
     .catch((error) => {
       console.log(error);
@@ -78,6 +78,7 @@ const deleteUser = (userId, setInfo, setUsers, userData, users) => {
   axios.post(url2, req).then(
     (response) => {
       if (response.data.success) {
+        deleteFromCollection(userData.collection, userData.id);
         setUsers(users.filter((user) => user !== userData));
         setInfo("User deleted");
       }
@@ -85,6 +86,18 @@ const deleteUser = (userId, setInfo, setUsers, userData, users) => {
     (error) => {
       setInfo("Error deleting user");
     }
+  );
+};
+
+const deleteFromCollection = (collectionName, id) => {
+  let req = {
+    collectionName: collectionName,
+    IDs: [id],
+  };
+
+  axios.post(url3, req).then(
+    (response) => {},
+    (error) => {}
   );
 };
 export default ListUsers;

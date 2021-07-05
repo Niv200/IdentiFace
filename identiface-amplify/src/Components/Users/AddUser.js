@@ -154,6 +154,7 @@ const getUsers = (setUsers) => {
       let list = response.data.images.map((userPath) => {
         return userPath.Key.replace("public/", "").replace("-", " ").split(".")[0];
       });
+      list = list.filter((listName) => !listName.includes("compare/"));
       setUsers(list);
     })
     .catch((error) => {});

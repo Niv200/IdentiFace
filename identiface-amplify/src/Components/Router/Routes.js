@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Collections from "../Collection/Collections";
 import Users from "../Users/Users";
+import UploadComparePhoto from "../UploadComparePhoto";
 import ComparePhoto from "../ComparePhoto";
 
 export default function Routes() {
@@ -30,9 +31,28 @@ export default function Routes() {
           <Route path="/users">
             <Users />
           </Route>
+          <Route path="/compare/upload">
+            <h1>Upload</h1>
+            <UploadComparePhoto />
+          </Route>
+          <Route path="/compare/compareexist">
+            <h1>Compare existing photo from S3</h1>
+            <ComparePhoto />
+          </Route>
           <Route path="/compare">
             <h1>Compare a photo:</h1>
-            <ComparePhoto />
+            <ul>
+              <div>
+                <Link to="/compare/upload">
+                  <button>Upload test photo</button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/compare/compareexist">
+                  <button>Compare existing photo</button>
+                </Link>
+              </div>
+            </ul>
           </Route>
           <Route path="/">
             <div className="addbackground">
