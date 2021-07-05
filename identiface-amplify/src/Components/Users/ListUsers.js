@@ -20,8 +20,8 @@ function ListUsers() {
   return (
     <div>
       <h1>Listing all users in database:</h1>
-      <p>Click on the button to show more info</p>
-      <div>{info}</div>
+      <p className="paragraph">Click on the button to show more info</p>
+      <div className="paragraph">{info}</div>
       <div>{displayUsers(users, setInfo, setUsers, users)}</div>
       {info && <button onClick={() => setInfo(undefined)}>clear</button>}
     </div>
@@ -33,6 +33,7 @@ const getUsers = (setUsers) => {
     .get(url)
     .then((response) => {
       setUsers(response.data.data.Items);
+      console.log(response.data.data.Items);
     })
     .catch((error) => {
       console.log(error);

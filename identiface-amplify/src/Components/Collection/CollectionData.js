@@ -19,10 +19,14 @@ export default function CollectionData() {
   return (
     <div>
       <div>
-        <h1>Show information about each collection</h1>
+        <h1 className="listcollectionsh1">Show information about each collection</h1>
       </div>
-      {list}
-      {current ? <div>{current}</div> : undefined}
+      {current ? (
+        <div className="collectionlist">
+          {current} <button onClick={() => setCurrent(undefined)}>Back</button>
+        </div>
+      ) : undefined}
+      {current ? undefined : list}
     </div>
   );
 }
@@ -47,9 +51,9 @@ const getList = (collections, setCurrent) => {
     );
   });
   return (
-    <div>
-      <ul>{list}</ul>
-    </div>
+    // <div>
+    <ul className="collectionlist">{list}</ul>
+    // </div>
   );
 };
 

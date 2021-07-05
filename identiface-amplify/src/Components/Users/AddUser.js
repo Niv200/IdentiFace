@@ -20,11 +20,11 @@ function AddUser() {
   }, []);
   if (status) {
   }
-  if (!collection && collections) {
+  if (!collection && collections && !adding) {
     return (
       <div>
         <h1>Choose a collection to add a user into.</h1>
-        <div>{promptCollections(collections, setCollection)}</div>
+        <div className="paragraph">{promptCollections(collections, setCollection)}</div>
       </div>
     );
   }
@@ -45,9 +45,9 @@ function AddUser() {
   if (user) {
     return (
       <div>
-        <h1>
+        <h2>
           You are about to add {user} to {collection} collection.
-        </h1>
+        </h2>
         <button
           onClick={() => {
             addUser(user, collection, setStatus, setAdding);
@@ -74,7 +74,7 @@ function AddUser() {
   return (
     <div>
       <h1>Adding user into {collection}.</h1>
-      <div>{getUsersButtons(users, collection, setUser)}</div>
+      <div className="paragraph">{getUsersButtons(users, collection, setUser)}</div>
       <button onClick={() => setCollection(undefined)}>Back</button>
     </div>
   );
@@ -107,7 +107,7 @@ const getUsersButtons = (users, collection, setUser) => {
 };
 
 const addUser = (user, collection, setStatus, setAdding) => {
-  setStatus("Added new user");
+  setStatus("Adding new user...");
   //setAdding(undefined) when completed
   let userName = user;
   let path = "public/" + user.replace(" ", "-") + ".png";
@@ -133,14 +133,16 @@ const addUser = (user, collection, setStatus, setAdding) => {
               setAdding(undefined);
             }
           },
-          (error) => {}
+          (error) => {
+            setStatus("Error, refresh page!");
+          }
         );
       } else {
         setStatus("Error, refresh page!");
       }
     },
     (error) => {
-      setStatus(undefined);
+      setStatus("Error, refresh page!");
     }
   );
 };
