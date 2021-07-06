@@ -66,8 +66,10 @@ const mapUsers = (users, setUsers, setUserName) => {
 };
 
 const removeUser = (user, setUsers, users, setUserName) => {
+  let userDel = user.replace(" ", "-");
+  userDel = "public/" + userDel + ".png";
   axios
-    .post(url2, { name: user })
+    .post(url2, { name: userDel })
     .then((response) => {
       setUsers(users.filter((user2) => user2 !== user));
       setUserName(undefined);

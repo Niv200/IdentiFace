@@ -40,15 +40,15 @@ function DeleteUsers() {
   if (users) {
     return (
       <div>
-        <h1>Delete user image from S3 bucket</h1>
+        <h1>Delete test photo image from S3 bucket</h1>
         <div>{mapUsers(users, setUsers, setUserName)}</div>
       </div>
     );
   }
   return (
     <div>
-      <h1>Delete user image from S3 bucket</h1>
-      <h1>Loading users...</h1>
+      <h1>Delete test image from S3 bucket</h1>
+      <h1>Loading images...</h1>
     </div>
   );
 }
@@ -64,8 +64,10 @@ const mapUsers = (users, setUsers, setUserName) => {
 };
 
 const removeUser = (user, setUsers, users, setUserName) => {
+  //   let userDel = user.replace(" ", "-");
+  let userDel = "public/compare/" + user + ".png";
   axios
-    .post(url2, { name: user })
+    .post(url2, { name: userDel })
     .then((response) => {
       setUsers(users.filter((user2) => user2 !== user));
       setUserName(undefined);

@@ -105,6 +105,7 @@ export default function ComparePhoto() {
         <div>
           <h2>Result:</h2>
           <p className="Paragraph">{userName}</p>
+          <p className="Paragraph">from {collection} collection</p>
         </div>
       );
     }
@@ -183,8 +184,6 @@ const comparePhoto = (photo, collection, setResult, setProgress) => {
         } else {
           let similarity = response.data.result.FaceMatches[0].Similarity;
           let faceId = response.data.result.FaceMatches[0].Face.FaceId;
-          console.log(similarity);
-          console.log(faceId);
           let res = {
             similarity: similarity,
             faceId: faceId,

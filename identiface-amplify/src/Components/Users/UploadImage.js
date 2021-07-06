@@ -34,7 +34,6 @@ export default function UploadImage() {
     );
   }
   if (result) {
-    console.log(result);
     return (
       <div>
         <h1>Added new user.</h1>
@@ -80,7 +79,6 @@ const upload = (firstName, lastName, setMessage, file, setProgress, setResult) =
     } else {
       setMessage(undefined);
       let fileName = firstName + "-" + lastName + ".png";
-      console.log(file);
       uploadFile(file, fileName, setProgress, setResult);
     }
   } else {

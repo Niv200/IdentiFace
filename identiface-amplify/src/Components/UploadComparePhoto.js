@@ -66,7 +66,6 @@ const upload = (fileName, setMessage, file, setResult) => {
       setMessage("Image is not valid!");
     } else {
       setMessage(undefined);
-      console.log(file);
       uploadFile(file, fileName, setResult);
     }
   } else {
