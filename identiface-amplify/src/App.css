@@ -1,133 +1,138 @@
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 .nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(82, 82, 82);
-  font-size: 30px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(82, 82, 82);
+	font-size: 30px;
 }
 
 .nav-li {
-  float: left;
+	float: left;
 }
 
 .nav-li a {
-  display: block;
-  color: rgb(165, 219, 250);
-  text-align: center;
-  padding: 10px 16px;
-  text-decoration: none;
+	display: block;
+	color: rgb(165, 219, 250);
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
 }
 
 .nav-li :hover {
-  background-color: rgb(112, 187, 248);
+	background-color: rgb(112, 187, 248);
 }
 
 /* collection nav */
 .navcol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(131, 131, 131);
-  font-size: 20px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(131, 131, 131);
+	font-size: 20px;
 }
 
 .nav-li-col {
-  float: left;
+	float: left;
 }
 
 .nav-li-col a {
-  display: block;
-  color: rgb(114, 220, 247);
-  text-align: center;
-  padding: 10px 16px;
-  text-decoration: none;
+	display: block;
+	color: rgb(114, 220, 247);
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
 }
 
 .nav-li-col :hover {
-  background-color: rgb(112, 239, 248);
+	background-color: rgb(112, 239, 248);
 }
 
 /* CollectionList */
 .collectionlist {
-  background-color: rgb(140, 211, 211);
-  font-size: 35px;
-  margin: auto;
-  width: auto;
-  padding: 10px;
+	background-color: rgb(140, 211, 211);
+	font-size: 35px;
+	margin: auto;
+	width: auto;
+	padding: 10px;
 }
 
 .listcollectionsh1 {
-  background-color: rgb(140, 211, 211);
-  font-size: 45px;
-  margin: auto;
-  width: auto;
-  padding: 10px;
+	background-color: rgb(140, 211, 211);
+	font-size: 45px;
+	margin: auto;
+	width: auto;
+	padding: 10px;
 }
 
 button {
-  background-color: #777777; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+	background-color: #777777; /* Green */
+	border: none;
+	color: white;
+	padding: 5px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 button:hover {
-  background-color: #4e4e4e; /* Green */
+	background-color: #4e4e4e; /* Green */
 }
 
 .amplifysignout:hover {
-  background-color: #af7800; /* Green */
+	background-color: #af7800; /* Green */
 }
 /* CreateCollection */
 .paragraph {
-  background-color: rgb(140, 211, 211);
-  font-size: 20px;
-  margin: auto;
-  width: auto;
-  padding: 10px;
+	background-color: rgb(140, 211, 211);
+	font-size: 20px;
+	margin: auto;
+	width: auto;
+	padding: 10px;
 }
 
 .status {
-  background-color: rgb(140, 211, 211);
-  font-size: 20px;
-  margin: auto;
-  width: auto;
-  padding: 10px;
+	background-color: rgb(140, 211, 211);
+	font-size: 20px;
+	margin: auto;
+	width: auto;
+	padding: 10px;
 }
 
 .addbackground {
-  background-color: rgb(140, 211, 211);
+	background-color: rgb(140, 211, 211);
 }
 
 input[type="text"] {
-  width: auto;
-  font-size: 20px;
+	width: auto;
+	font-size: 20px;
 
-  padding: 12px 20px;
-  margin: 0 0 10px;
-  display: inline-block;
-  border: 1px solid rgb(122, 122, 122);
-  border-radius: 40px;
-  box-sizing: border-box;
+	padding: 12px 20px;
+	margin: 0 0 10px;
+	display: inline-block;
+	border: 1px solid rgb(122, 122, 122);
+	border-radius: 40px;
+	box-sizing: border-box;
 }
 input:focus {
-  border: 1px solid rgb(123, 194, 235);
-  outline: none;
+	border: 1px solid rgb(123, 194, 235);
+	outline: none;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
+}
+
+.image {
+	/* width: 150px; */
+	height: 150px;
 }
