@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "dev_identitypool_a721725f",
+    "identityPoolName": "identiface476f0f7e_identitypool_476f0f7e",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "identi82bdbdb6",
-    "userPoolName": "identiface82bdbdb6_userpool_82bdbdb6",
+    "resourceNameTruncated": "identi476f0f7e",
+    "userPoolName": "identiface476f0f7e_userpool_476f0f7e",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "dev82bdbdb6_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": true,
-    "sharedId": "82bdbdb6",
-    "resourceName": "dev",
+    "userpoolClientLambdaRole": "identi476f0f7e_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "476f0f7e",
+    "resourceName": "identiface476f0f7e",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,14 +45,9 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
-    "userPoolGroups": true,
-    "adminQueries": true,
+    "useDefault": "default",
     "triggers": "{}",
-    "hostedUI": false,
-    "userPoolGroupList": [
-        "admin"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "parentStack": {

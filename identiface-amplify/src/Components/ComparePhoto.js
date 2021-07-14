@@ -250,7 +250,7 @@ const constructList = (collections, setCollection) => {
 
 const comparePhoto = (photo, collection, setResult, setProgress) => {
 	let request = {
-		photo: photo,
+		photo: "compare/" + photo,
 		collection: collection,
 	};
 	axios.post(url3, request).then(

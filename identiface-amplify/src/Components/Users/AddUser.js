@@ -176,6 +176,7 @@ const getUsers = (setUsers) => {
 				return userPath.Key.replace("public/", "").replace("-", " ").split(".")[0];
 			});
 			list = list.filter((listName) => !listName.includes("compare/"));
+			list = list.filter((listName) => !listName.includes("test/"));
 			setUsers(list);
 		})
 		.catch((error) => {});
@@ -188,6 +189,18 @@ const updateCollectionsState = (setCollections) => {
 			setCollections(response.data.collections);
 		})
 		.catch((error) => {});
+};
+
+const isExist = (db, name) => {
+	const url4 = "https://5xsgteuu4g.execute-api.eu-central-1.amazonaws.com/stage_1/identiface-api/listdynamo";
+	axios
+		.get(url4)
+		.then((response) => {
+			// console.log(response.data.data.Items.filter((item) => item.name !== name));
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 };
 
 export default AddUser;
