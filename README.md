@@ -76,9 +76,9 @@ This is a demo!
 
 it is not the most secure nor is it the most optimized app available for face identification.
 
-Much of the app architecture can be done in a better way, I chose to access DynamoDB via Lambda instead of directly from Amplify whilst I access the S3 bucket for uploads directly from Amplify.
+Much of the app architecture can be done in a better way, I chose to access DynamoDB via Lambda instead of directly from Amplify whilst I access the S3 bucket for uploads directly.
 
-I tried both in order to learn both ways, Im unsure which is the better way to do it.
+I tried both in order to experience both ways.
 
 ### Limitations
 
